@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário Cuidadores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      padding: 20px;
+    }
+
+    form {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+
+    button {
+      background-color: #2563eb;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 30px auto 0;
+    }
+
+    button:hover {
+      background-color: #1d4ed8;
+    }
+
+    .checkbox-group,
+    .inline-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-group label,
+    .inline-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .grid-checkboxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px 24px;
+      margin-top: 10px;
+    }
+
+    .grid-checkboxes label {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .grid-checkboxes label:hover {
+      background-color: #eef2f7;
+    }
+
+    .grid-checkboxes input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+
+
+    .grid-checkboxes label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="cuidadorForm">
+    <h2>Formulário de Cadastro Profissional</h2>
+    <h5> <i>Campos com asterísco (*) são obrigatórios</i></h5>
+    <input name="cpf" placeholder="CPF*" required />
+    <input name="nome" placeholder="Nome Completo*" required />
+    <input name="rg" placeholder="RG" />
+    <label for="data_nascimento">Data de Nascimento</label>
+    <input name="data_nascimento" type="date" />
+    <select name="estado_civil" id="estado_civil">
+      <option value="" disabled selected>Selecione o estado civil</option>
+      <option value="Solteiro(a)">Solteiro(a) – quem nunca se casou ou teve casamento anulado.</option>
+      <option value="Casado(a)">Casado(a) – união formalizada por casamento civil.</option>
+      <option value="Separado(a)">Separado(a) – ainda possui vínculo legal (matrimônio), porém separado de fato ou
+        judicialmente.</option>
+      <option value="Divorciado(a)">Divorciado(a) – casamento dissolvido com decisão judicial ou escritura pública.
+      </option>
+      <option value="Viúvo(a)">Viúvo(a) – perdeu o cônjuge em virtude de falecimento.</option>
+      <option value="Outro / Prefiro não dizer">Outro / Prefiro não dizer</option>
+    </select>
+    <input name="endereco" placeholder="Endereço" />
+    <input name="bairro" placeholder="Bairro" />
+    <select id="estado" name="estado">
+      <option value="" disabled selected>Selecione o estado</option>
+      <option value="AC">AC - Acre</option>
+      <option value="AL">AL - Alagoas</option>
+      <option value="AP">AP - Amapá</option>
+      <option value="AM">AM - Amazonas</option>
+      <option value="BA">BA - Bahia</option>
+      <option value="CE">CE - Ceará</option>
+      <option value="DF">DF - Distrito Federal</option>
+      <option value="ES">ES - Espírito Santo</option>
+      <option value="GO">GO - Goiás</option>
+      <option value="MA">MA - Maranhão</option>
+      <option value="MT">MT - Mato Grosso</option>
+      <option value="MS">MS - Mato Grosso do Sul</option>
+      <option value="MG">MG - Minas Gerais</option>
+      <option value="PA">PA - Pará</option>
+      <option value="PB">PB - Paraíba</option>
+      <option value="PR">PR - Paraná</option>
+      <option value="PE">PE - Pernambuco</option>
+      <option value="PI">PI - Piauí</option>
+      <option value="RJ">RJ - Rio de Janeiro</option>
+      <option value="RN">RN - Rio Grande do Norte</option>
+      <option value="RS">RS - Rio Grande do Sul</option>
+      <option value="RO">RO - Rondônia</option>
+      <option value="RR">RR - Roraima</option>
+      <option value="SC">SC - Santa Catarina</option>
+      <option value="SP">SP - São Paulo</option>
+      <option value="SE">SE - Sergipe</option>
+      <option value="TO">TO - Tocantins</option>
+    </select>
+    <select id="cidade" name="cidade">
+      <option value="">Selecione um estado primeiro</option>
+    </select>
+    <input name="telefones" placeholder="Telefone*" required />
+    <input name="email" placeholder="Email*" required />
+    <select name="grau_instrucao">
+      <option value="Ensino Fundamental">Ensino Fundamental</option>
+      <option value="Ensino Médio">Ensino Médio</option>
+      <option value="Ensino Superior">Ensino Superior</option>
+    </select>
+    <label>Tipo de Vínculo:</label>
+    <input type="checkbox" name="tipo_vinculo_horista" /> MEI
+    <input type="checkbox" name="tipo_vinculo_autonomo" /> Autônomo
+    <input type="checkbox" name="tipo_vinculo_clt" /> CLT
+    <input type="checkbox" name="tipo_vinculo_estagio" /> Estágio
+
+
+
+
+
+    <select name="possui_cnpj">
+      <option value="true">Tem MEI ativo</option>
+      <option value="false">Não tem MEI ativo</option>
+    </select>
+    <input name="manequim" placeholder="Manequim" />
+
+    <input name="ponto_referencia" placeholder="Ponto de Referência" />
+
+    <select name="possui_filhos">
+      <option value="true">Tem filhos</option>
+      <option value="false">Não tem filhos</option>
+    </select>
+    <input name="idades_filhos" placeholder="Idades dos filhos" />
+    <textarea name="cursos_formacoes" placeholder="Cursos e formações"></textarea>
+    <textarea name="experiencias_profissionais" placeholder="Experiências profissionais"></textarea>
+    <textarea name="motivo_desligamento" placeholder="Motivo do desligamento"></textarea>
+    <select name="veiculo_proprio">
+      <option value="true">Tem veículo</option>
+      <option value="false">Não tem veículo</option>
+    </select>
+    <input name="quantidade_conducoes" type="text" placeholder="Nº de conduções" />
+    <select name="possui_cnh">
+      <option value="true">Possui CNH</option>
+      <option value="false">Não possui CNH</option>
+    </select>
+    <select name="possui_vicio">
+      <option value="true">Possui vício</option>
+      <option value="false">Não possui vício</option>
+    </select>
+    <input name="quais_vicios" placeholder="Quais vícios?" />
+    <textarea name="qualidades" placeholder="5 qualidades"></textarea>
+    <textarea name="defeitos" placeholder="5 defeitos"></textarea>
+    <label for="trabalha_em_grupo">Sabe trabalhar em grupo?</label>
+    <select name="trabalha_em_grupo">
+      <option value="true">Sim</option>
+      <option value="false">Não</option>
+    </select>
+    <textarea name="pensamento_hierarquia" placeholder="O que pensa sobre hierarquia?"></textarea>
+    <textarea name="pretensoes_5_anos" placeholder="Pretensões para daqui 5 anos"></textarea>
+    <label for="">Cite 6 cuidados durante as técnicas de cuidados:</label>
+    <textarea name="banho_no_leito" placeholder="Cuidados - Banho no leito"></textarea>
+    <textarea name="banho_aspersao" placeholder="Cuidados - Banho de aspersão"></textarea>
+    <textarea name="alimentacao_vo" placeholder="Cuidados - Alimentação VO"></textarea>
+    <textarea name="transporte_paciente" placeholder="Cuidados - Transporte do paciente"></textarea>
+
+    <label>Conhecimentos:</label>
+    <div class="grid-checkboxes">
+      <label><input type="checkbox" name="conhecimento_suporte_o2" />Suporte O2</label>
+      <label><input type="checkbox" name="conhecimento_tqt" />TQT</label>
+      <label><input type="checkbox" name="conhecimento_sng" />SNG</label>
+      <label><input type="checkbox" name="conhecimento_svd_sva" />SVD/SVA</label>
+      <label><input type="checkbox" name="conhecimento_medicacao_vo" />Medicação VO</label>
+      <label><input type="checkbox" name="conhecimento_hgt" />HGT</label>
+      <label><input type="checkbox" name="conhecimento_pa" />PA</label>
+      <label><input type="checkbox" name="conhecimento_temp_corporal" />Temperatura Corporal</label>
+      <label><input type="checkbox" name="conhecimento_fr" />FR</label>
+      <label><input type="checkbox" name="conhecimento_fc" />FC</label>
+    </div>
+
+    <label>Disponibilidade:</label>
+    <div class="grid-checkboxes">
+      <label><input type="checkbox" name="disponibilidade_manha" />Manhã</label>
+      <label><input type="checkbox" name="disponibilidade_tarde" />Tarde</label>
+      <label><input type="checkbox" name="disponibilidade_noite" />Noite</label>
+      <label><input type="checkbox" name="disponibilidade_segunda" />Segunda</label>
+      <label><input type="checkbox" name="disponibilidade_terca" />Terça</label>
+      <label><input type="checkbox" name="disponibilidade_quarta" />Quarta</label>
+      <label><input type="checkbox" name="disponibilidade_quinta" />Quinta</label>
+      <label><input type="checkbox" name="disponibilidade_sexta" />Sexta</label>
+      <label><input type="checkbox" name="disponibilidade_sabado" />Sábado</label>
+      <label><input type="checkbox" name="disponibilidade_domingo" />Domingo</label>
+      <label><input type="checkbox" name="disponibilidade_feriados" />Feriados</label>
+    </div>
+
+
+    <div style="margin-top: 40px;"></div>
+    <textarea name="atrativos_vaga" placeholder="Quais foram os atrativos desta vaga para você?"></textarea>
+    <textarea name="reacao_opiniao_diferente"
+      placeholder="Qual sua reação frente a uma pessoa de opinião diferente da sua?"></textarea>
+    <label for="">Escolha 3 palavras sobre você</label>
+    <input name="resumo_1" placeholder="Palavra 1 sobre você" />
+    <input name="resumo_2" placeholder="Palavra 2 sobre você" />
+    <input name="resumo_3" placeholder="Palavra 3 sobre você" />
+    <label for="">Quais são as 3 características fundamentais para o sucesso de um CUIDADOR?</label>
+    <input name="caracteristica_1" placeholder="Característica 1 de cuidador" />
+    <input name="caracteristica_2" placeholder="Característica 2 de cuidador" />
+    <input name="caracteristica_3" placeholder="Característica 3 de cuidador" />
+    <textarea name="hobbies" placeholder="O que você faz para se divertir? Quais são seus hobbies?"></textarea>
+
+    <input name="religiao" placeholder="Qual é a sua religião?" />
+    <select name="praticante">
+      <option value="true">Praticante</option>
+      <option value="false">Não praticante</option>
+    </select>
+    <select name="bebe">
+      <option value="true">Bebe</option>
+      <option value="false">Não bebe</option>
+    </select>
+    <select name="fuma">
+      <option value="true">Fuma</option>
+      <option value="false">Não fuma</option>
+    </select>
+    <select name="possui_conta_bancaria">
+      <option value="true">Tem conta bancária</option>
+      <option value="false">Não tem conta bancária</option>
+    </select>
+    <input name="banco_qual" placeholder="Qual banco?" />
+    <select name="possui_email">
+      <option value="true">Tem email</option>
+      <option value="false">Não tem email</option>
+    </select>
+
+
+
+
+
+    <div style="margin-top: 40px; display: flex; justify-content: center;">
+      <div
+        style="background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; max-width: 700px;">
+        <label for="lgpdConsent"
+          style="display: flex; align-items: center; gap: 16px; font-size: 15px; line-height: 1.6; cursor: pointer;">
+          <input type="checkbox" id="lgpdConsent" required style="width: 22px; height: 22px; accent-color: #2563eb;" />
+          <span>
+            Concordo com o uso dos meus dados conforme descrito abaixo, em conformidade com a
+            <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018)</strong>. Os dados fornecidos serão utilizados
+            exclusivamente
+            para comunicações sobre vagas destinadas a cuidadores. É garantido o direito de solicitar a atualização ou
+            exclusão
+            das informações a qualquer momento*.
+          </span>
+        </label>
+      </div>
+    </div>
+
+
+
+
+
+    <button type="submit">Enviar</button>
+
+
+    <p><br><i style="font-size: 14px;"> Em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº
+        13.709/2018), informamos que os dados fornecidos serão utilizados exclusivamente para comunicações sobre vagas
+        destinadas a cuidadores. Garantimos a proteção e o tratamento adequado das suas informações. Você pode solicitar
+        a atualização ou exclusão dos seus dados a qualquer momento.</p>
+    </i>
+  </form>
+
+  <script type="module">
+    const estadoSelect = document.getElementById('estado');
+    const cidadeSelect = document.getElementById('cidade');
+
+    estadoSelect.addEventListener('change', async function () {
+      const estadoSelecionado = this.value;
+      cidadeSelect.innerHTML = '<option value="">Carregando...</option>';
+
+      try {
+        const res = await fetch(`http://173.212.213.152:3133/cidades/${estadoSelecionado}`);
+        const data = await res.json();
+
+        cidadeSelect.innerHTML = '';
+
+        if (!res.ok) {
+          cidadeSelect.innerHTML = '<option value="">Erro ao carregar cidades</option>';
+          return;
+        }
+
+        if (data.length === 0) {
+          cidadeSelect.innerHTML = '<option value="">Nenhuma cidade encontrada</option>';
+          return;
+        }
+
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = 'Selecione a cidade';
+        cidadeSelect.appendChild(defaultOption);
+
+        data.forEach(({ Municipio }) => {
+          const option = document.createElement('option');
+          option.value = Municipio;
+          option.textContent = Municipio;
+          cidadeSelect.appendChild(option);
+        });
+
+      } catch (error) {
+        cidadeSelect.innerHTML = '<option value="">Erro na comunicação com o servidor</option>';
+        console.error(error);
+      }
+    });
+
+
+
+    document.getElementById('cuidadorForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const lgpdCheckbox = document.getElementById('lgpdConsent');
+      if (!lgpdCheckbox.checked) {
+        alert('Você precisa consentir com o uso dos dados para continuar.');
+        return;
+      }
+
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      // Converte 'true'/'false' string para boolean
+      for (const key in data) {
+        if (data[key] === 'true') data[key] = true;
+        if (data[key] === 'false') data[key] = false;
+      }
+
+      try {
+        const res = await fetch('http://173.212.213.152:3133/cuidadores', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+        if (!res.ok) {
+          alert('Erro ao enviar: ' + result.error);
+        } else {
+          alert('Formulário enviado com sucesso!');
+          e.target.reset();
+        }
+      } catch (err) {
+        alert('Erro na comunicação com o servidor');
+        console.error(err);
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
