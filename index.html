@@ -348,7 +348,7 @@
       cidadeSelect.innerHTML = '<option value="">Carregando...</option>';
 
       try {
-        const res = await fetch(`http://173.212.213.152:3133/cidades/${estadoSelecionado}`);
+        const res = await fetch(`https://api.treaty.com.br/cidades/${estadoSelecionado}`);
         const data = await res.json();
 
         cidadeSelect.innerHTML = '';
